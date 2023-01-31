@@ -21,7 +21,7 @@ public class GoblinController : MonoBehaviour
         cameraDock.transform.Rotate(-Input.GetAxis("Mouse Y"), 0, 0);
         cameraDock.transform.eulerAngles = new Vector3(cameraDock.transform.eulerAngles.x, cameraDock.transform.eulerAngles.y, 0);
         transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
-        Vector3 vel = transform.forward * Input.GetAxis("Vertical") * 20;
+        Vector3 vel = transform.forward * Mathf.Max(0, Input.GetAxis("Vertical")) * 20;
         vel.y = GetComponent<Rigidbody>().velocity.y;
         if (Input.GetKey(KeyCode.Space) && onGround)
         {
