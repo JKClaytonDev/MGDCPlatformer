@@ -16,13 +16,14 @@ public class GoblinController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        onGround = Physics.Raycast(transform.position, Vector3.down, 1.6f);
         transform.Rotate(0, Input.GetAxis("Mouse X"), 0);
         cameraDock.transform.Rotate(-Input.GetAxis("Mouse Y"), 0, 0);
         cameraDock.transform.eulerAngles = new Vector3(cameraDock.transform.eulerAngles.x, cameraDock.transform.eulerAngles.y, 0);
         transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
         Vector3 vel = (transform.forward * Input.GetAxis("Vertical") + transform.right * Input.GetAxis("Horizontal"))*20;
         vel.y = GetComponent<Rigidbody>().velocity.y;
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space) && onGround)
         {
             vel.y = 10;
         }
