@@ -5,15 +5,27 @@ using UnityEngine;
 public class GoblinController : MonoBehaviour
 {
     public GameObject cameraDock;
+    public bool onGround;
     // Start is called before the first frame update
     void Start()
     {
-        
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        transform.Rotate(0, Input.GetAxis("Mouse X"), 0);
+        cameraDock.transform.Rotate(-Input.GetAxis("Mouse Y"), 0, 0);
+        cameraDock.transform.eulerAngles = new Vector3(cameraDock.transform.eulerAngles.x, cameraDock.transform.eulerAngles.y, 0);
+        transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+        Vector3 vel = (transform.forward * Input.GetAxis("Vertical") + transform.right * Input.GetAxis("Horizontal"))*20;
+        vel.y = GetComponent<Rigidbody>().velocity.y;
+        if (Input.GetKey(KeyCode.Space))
+        {
+            vel.y = 10;
+        }
+            GetComponent<Rigidbody>().velocity = vel;
     }
 }
