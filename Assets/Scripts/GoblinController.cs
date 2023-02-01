@@ -34,7 +34,7 @@ lastPos = transform.position;
         transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
         Vector3 vel = transform.forward  * 20;
         vel.y = GetComponent<Rigidbody>().velocity.y;
-        if (Input.GetKey(KeyCode.Space) && onGround)
+        if (Input.GetMouseButton(0) && onGround)
         {
             vel.y = 15;
         }
