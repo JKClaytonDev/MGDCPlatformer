@@ -8,7 +8,7 @@ public class MenuScript : MonoBehaviour
 {
 
     public void StartGame() {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("LV_Parkour");
     }
 
     // Start is called before the first frame update
