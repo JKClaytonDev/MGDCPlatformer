@@ -32,7 +32,7 @@ lastPos = transform.position;
         cameraDock.transform.Rotate(-Input.GetAxis("Mouse Y"), 0, 0);
         cameraDock.transform.eulerAngles = new Vector3(cameraDock.transform.eulerAngles.x, cameraDock.transform.eulerAngles.y, 0);
         transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
-        Vector3 vel = transform.forward  * 20;
+        Vector3 vel = transform.forward  * 15;
         vel.y = GetComponent<Rigidbody>().velocity.y;
         if (Input.GetMouseButton(0) && onGround)
         {
