@@ -11,6 +11,10 @@ public class JumpPad : MonoBehaviour
     {
         Rigidbody rb = other.GetComponent<Rigidbody>();
         if (rb != null)
+        {
+            
             rb.velocity = new Vector3(rb.velocity.x, strength, rb.velocity.z);
+        }
+            
     }
 }
