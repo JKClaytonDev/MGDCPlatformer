@@ -67,6 +67,7 @@ public class GoblinController : MonoBehaviour
 
         if (transform.position.x > 76 && transform.position.x < 85 && transform.position.z < -215 && transform.position.z > -220 && transform.position.y > 16)
         {
+
             image.enabled = true;
             youwin.enabled = true;
             Time.timeScale = 0;
